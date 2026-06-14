@@ -52,6 +52,13 @@ export default async function Home() {
               お問い合わせ
             </a>
           </div>
+          {/* モバイル用の常時表示CTA */}
+          <a
+            href="#contact"
+            className="md:hidden px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold text-sm"
+          >
+            お問い合わせ
+          </a>
         </div>
       </nav>
 

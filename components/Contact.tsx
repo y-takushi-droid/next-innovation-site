@@ -166,7 +166,16 @@ export default function Contact() {
               </div>
 
               {status === 'error' && (
-                <p className="text-red-400 text-sm text-center">送信に失敗しました。もう一度お試しください。</p>
+                <div className="text-center text-sm rounded-xl bg-red-500/10 border border-red-500/25 px-4 py-3">
+                  <p className="text-red-400">送信に失敗しました。もう一度お試しください。</p>
+                  <p className="text-gray-400 mt-1">
+                    繰り返し失敗する場合は、お手数ですが
+                    <a href="mailto:info@next-i-oki.com" className="text-blue-400 underline hover:text-blue-300">
+                      info@next-i-oki.com
+                    </a>
+                    まで直接ご連絡ください。
+                  </p>
+                </div>
               )}
 
               <button
