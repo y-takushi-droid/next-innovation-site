@@ -3,11 +3,11 @@ import { readData } from '@/lib/db';
 
 export const dynamic = 'force-dynamic';
 
-export default function AdminDashboard() {
-  const services = readData<unknown[]>('services.json');
-  const plans = readData<unknown[]>('pricing.json');
-  const jobs = readData<unknown[]>('jobs.json');
-  const works = readData<unknown[]>('works.json');
+export default async function AdminDashboard() {
+  const services = await readData<unknown[]>('services.json');
+  const plans = await readData<unknown[]>('pricing.json');
+  const jobs = await readData<unknown[]>('jobs.json');
+  const works = await readData<unknown[]>('works.json');
 
   const sections = [
     { href: '/admin/services', label: 'サービス管理', count: services.length, icon: '🛠️', desc: 'サービス内容の追加・編集・削除' },

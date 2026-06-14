@@ -13,27 +13,27 @@ type Job = {
 };
 
 export async function GET() {
-  return NextResponse.json(readData<Job[]>('jobs.json'));
+  return NextResponse.json(await readData<Job[]>('jobs.json'));
 }
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
-  const jobs = readData<Job[]>('jobs.json');
+  const jobs = await readData<Job[]>('jobs.json');
   const newJob = { ...body, id: Date.now().toString() };
-  writeData('jobs.json', [...jobs, newJob]);
+  await writeData('jobs.json', [...jobs, newJob]);
   return NextResponse.json(newJob, { status: 201 });
 }
 
 export async function PUT(req: NextRequest) {
   const body = await req.json();
-  const jobs = readData<Job[]>('jobs.json');
-  writeData('jobs.json', jobs.map((j) => (j.id === body.id ? body : j)));
+  const jobs = await readData<Job[]>('jobs.json');
+  await writeData('jobs.json', jobs.map((j) => (j.id === body.id ? body : j)));
   return NextResponse.json(body);
 }
 
 export async function DELETE(req: NextRequest) {
   const { id } = await req.json();
-  const jobs = readData<Job[]>('jobs.json');
-  writeData('jobs.json', jobs.filter((j) => j.id !== id));
+  const jobs = await readData<Job[]>('jobs.json');
+  await writeData('jobs.json', jobs.filter((j) => j.id !== id));
   return NextResponse.json({ success: true });
 }

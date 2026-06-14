@@ -5,8 +5,8 @@
       "name": "next-innovation",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
-      "cwd": "/Users/takushiminori/Desktop/Next Innovation/website",
-      "port": 3000
+      "port": 3000,
+      "autoPort": true
     }
   ]
 }

@@ -14,12 +14,12 @@ export const dynamic = 'force-dynamic';
 type Work = { id: string; category: string; title: string; description: string; beforeImage: string; afterImage: string; date: string };
 type Settings = { instagram: string; twitter: string; facebook: string; line: string };
 
-export default function Home() {
-  const services = readData<Parameters<typeof Services>[0]['services']>('services.json');
-  const plans = readData<Parameters<typeof Pricing>[0]['plans']>('pricing.json');
-  const works = readData<Work[]>('works.json');
-  const settings = readData<Settings>('settings.json');
-  const jobs = readData<Parameters<typeof Recruitment>[0]['jobs']>('jobs.json');
+export default async function Home() {
+  const services = await readData<Parameters<typeof Services>[0]['services']>('services.json');
+  const plans = await readData<Parameters<typeof Pricing>[0]['plans']>('pricing.json');
+  const works = await readData<Work[]>('works.json');
+  const settings = await readData<Settings>('settings.json');
+  const jobs = await readData<Parameters<typeof Recruitment>[0]['jobs']>('jobs.json');
 
   return (
     <main className="bg-[#0a0a0a]">
