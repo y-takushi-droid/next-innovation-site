@@ -45,8 +45,11 @@ Vercel プロジェクトの **Settings → Environment Variables** に、以下
 | `SMTP_USER`      | 送信元 Gmail アドレス                  |
 | `SMTP_PASS`      | Gmail アプリパスワード                 |
 | `MAIL_TO`        | 問い合わせの受信先アドレス             |
+| `NEXT_PUBLIC_SITE_URL` | 公開サイトのURL（例: `https://next-i-oki.com`）。SEO・OGP・サイトマップで使用 |
 
-> **値は手元の `.env.local` からコピーしてください。** このファイルは Git に含まれない（= 公開されない）ため、Vercel 側に別途登録する必要があります。
+> `NEXT_PUBLIC_SITE_URL` は独自ドメインが決まったらその URL を設定してください。未設定でもデフォルト値で動きますが、SNS シェアのサムネ等が正しい URL を指すよう、本番ドメインを入れるのが推奨です。
+>
+> **その他の値は手元の `.env.local` からコピーしてください。** このファイルは Git に含まれない（= 公開されない）ため、Vercel 側に別途登録する必要があります。
 >
 > セキュリティ注意: `SMTP_PASS` は Gmail の「アプリパスワード」です。万一漏れた場合は Google アカウントで再発行してください。
 
